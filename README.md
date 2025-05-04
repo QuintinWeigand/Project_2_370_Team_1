@@ -1,0 +1,1 @@
+Please refer to [SETUP.md](SETUP.md) for setup instructions and collaboration details.
