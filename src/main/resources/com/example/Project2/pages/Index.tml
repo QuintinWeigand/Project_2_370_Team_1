@@ -43,7 +43,7 @@
 
 <t:block t:id="block">
     <h2>Ajax updated</h2>
-    <p>I'v been updated through AJAX call</p>
+    <p>I've been updated through AJAX call</p>
     <p>The current time is: <strong>${currentTime}</strong></p>
 </t:block>
 
