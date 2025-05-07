@@ -4,7 +4,7 @@ package com.example.Project2.model;
  * Represents a Purple Widget product in the system.
  */
 public class Widget {
-    private Long id;
+    private String id; // Changed from Long to String for MongoDB ObjectId
     private String name;
     private String description;
     private double price;
@@ -16,7 +16,7 @@ public class Widget {
         // Default constructor
     }
 
-    public Widget(Long id, String name, String description, double price, String imageUrl, int stockQuantity) {
+    public Widget(String id, String name, String description, double price, String imageUrl, int stockQuantity) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -26,11 +26,11 @@ public class Widget {
     }
 
     // Getters and setters
-    public Long getId() {
+    public String getId() {  // Changed from Long to String
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {  // Changed from Long to String
         this.id = id;
     }
 
@@ -85,7 +85,7 @@ public class Widget {
     @Override
     public String toString() {
         return "Widget{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
