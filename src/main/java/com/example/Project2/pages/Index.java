@@ -36,6 +36,12 @@ public class Index {
     @Inject
     private Block block;
 
+    @Inject
+    private com.example.Project2.services.MongoStatusService mongoStatusService;
+
+    @Inject
+    private org.apache.tapestry5.alerts.AlertManager alertManager;
+
     // Handle call with an unwanted context
     Object onActivate(EventContext eventContext)
     {
@@ -68,5 +74,13 @@ public class Index {
     public ZonedDateTime getCurrentTime()
     {
         return ZonedDateTime.now();
+    }
+    void setupRender() {
+        String status = mongoStatusService.getStatus();
+        if (status.startsWith("Connected")) {
+            alertManager.success("MongoDB Connection Status: " + status);
+        } else {
+            alertManager.error("MongoDB Connection Status: " + status);
+        }
     }
 }
