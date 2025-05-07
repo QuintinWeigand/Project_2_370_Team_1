@@ -30,6 +30,8 @@ public class AppModule {
         // binder.bind(MyServiceInterface.class, MyServiceImpl.class);
         binder.bind(com.example.Project2.services.MongoStatusService.class);
         binder.bind(com.example.Project2.services.MongoWidgetService.class);
+        binder.bind(com.example.Project2.services.UserService.class);
+        binder.bind(com.example.Project2.services.SessionService.class);
         // Make bind() calls on the binder object to define most IoC services.
         // Use service builder methods (example below) when the implementation
         // is provided inline, or requires more initialization than simply

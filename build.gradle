@@ -13,7 +13,8 @@ ext {
         json: "1.1.4",
         junit: "5.7.2",
         yasson: "2.0.2",
-        servlet: "3.1.0"
+        servlet: "3.1.0",
+        springSecurity: "5.6.2"
     ]
 }
 
@@ -62,6 +63,9 @@ dependencies {
 
     // MongoDB Java Driver
     implementation 'org.mongodb:mongodb-driver-sync:4.11.1'
+    
+    // Spring Security for BCrypt password hashing
+    implementation "org.springframework.security:spring-security-crypto:${versions.springSecurity}"
 }
 
 sourceSets {

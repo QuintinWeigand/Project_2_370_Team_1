@@ -1,5 +1,8 @@
 package com.example.Project2.pages;
 
+import com.example.Project2.model.User;
+import com.example.Project2.services.SessionService;
+import com.example.Project2.services.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.tapestry5.alerts.AlertManager;
@@ -17,37 +20,64 @@ public class Login {
     @Inject
     private AlertManager alertManager;
 
+    @Inject
+    private UserService userService;
+    
+    @Inject
+    private SessionService sessionService;
+
     @InjectComponent
     private Form login;
 
-    @InjectComponent("email")
-    private TextField emailField;
+    @InjectComponent("username")
+    private TextField usernameField;
 
     @InjectComponent("password")
     private PasswordField passwordField;
 
     @Property
-    private String email;
+    private String username;
 
     @Property
     private String password;
+    
+    // Called when first visiting the login page
+    void onActivate() {
+        // If already logged in, redirect to index
+        if (sessionService.isLoggedIn()) {
+            alertManager.info("You are already logged in as " + sessionService.getCurrentUsername());
+        }
+    }
 
     void onValidateFromLogin() {
-        if (!email.equals("users@tapestry.apache.org"))
-            login.recordError(emailField, "Try with user: users@tapestry.apache.org");
-
-        if (!password.equals("Tapestry5"))
-            login.recordError(passwordField, "Try with password: Tapestry5");
+        if (username == null || username.isEmpty()) {
+            login.recordError(usernameField, "Username is required");
+            return;
+        }
+        
+        if (password == null || password.isEmpty()) {
+            login.recordError(passwordField, "Password is required");
+            return;
+        }
+        
+        User user = userService.authenticateUser(username, password);
+        if (user == null) {
+            login.recordError("Invalid username or password");
+        }
     }
 
     Object onSuccessFromLogin() {
-        logger.info("Login successful!");
-        alertManager.success("Welcome aboard!");
+        User user = userService.getUserByUsername(username);
+        sessionService.login(user);
+        
+        logger.info("Login successful for user: {}", username);
+        alertManager.success("Welcome, " + username + "!");
+        
         return Index.class;
     }
 
     void onFailureFromLogin() {
-        logger.warn("Login error!");
-        alertManager.error("I'm sorry but I can't log you in!");
+        logger.warn("Login failed for username: {}", username);
+        alertManager.error("Login failed. Please check your credentials.");
     }
 }

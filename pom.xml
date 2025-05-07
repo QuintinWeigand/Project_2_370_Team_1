@@ -18,6 +18,7 @@
         <maven-compiler-version>3.8.1</maven-compiler-version>
         <maven-surefire-version>3.0.0-M5</maven-surefire-version>
         <maven-jetty-version>10.0.6</maven-jetty-version>
+        <spring-security-version>5.6.2</spring-security-version>
     </properties>
     <repositories>
         <repository>
@@ -52,6 +53,12 @@
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver-sync</artifactId>
             <version>4.11.1</version>
+        </dependency>
+        <!-- Spring Security for BCrypt -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>${spring-security-version}</version>
         </dependency>
         <!-- CoffeeScript & Less support, plus resource minification -->
         <dependency>
