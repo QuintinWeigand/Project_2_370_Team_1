@@ -8,11 +8,7 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-12">
-        <p><strong>MongoDB Connection Status:</strong> ${mongoStatus}</p>
-    </div>
-</div>
+
 
 <t:if test="learn">
     <div class="row">
