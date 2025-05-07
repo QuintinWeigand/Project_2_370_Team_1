@@ -47,6 +47,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- MongoDB Java Driver -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>4.11.1</version>
+        </dependency>
         <!-- CoffeeScript & Less support, plus resource minification -->
         <dependency>
             <groupId>org.apache.tapestry</groupId>

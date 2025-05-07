@@ -59,6 +59,9 @@ dependencies {
     runtimeOnly("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:${versions.jackson}")
 
     runtimeOnly("javax.servlet:javax.servlet-api:${versions.servlet}")
+
+    // MongoDB Java Driver
+    implementation 'org.mongodb:mongodb-driver-sync:4.11.1'
 }
 
 sourceSets {
