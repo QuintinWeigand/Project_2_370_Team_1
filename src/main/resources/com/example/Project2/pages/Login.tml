@@ -23,6 +23,13 @@
                         <t:submit class="btn btn-primary btn-large" value="Sign in"/>
                     </div>
                 </t:form>
+                
+                <hr/>
+                
+                <div class="text-center mt-3">
+                    <p>Don't have an account?</p>
+                    <t:pagelink page="register" class="btn btn-outline-primary">Create an Account</t:pagelink>
+                </div>
             </div>
         </div>
     </div>
