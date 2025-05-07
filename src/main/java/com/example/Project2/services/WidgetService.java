@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class WidgetService {
     private static final Logger logger = LoggerFactory.getLogger(WidgetService.class);
-    private final Map<Long, Widget> widgets = new HashMap<>();
+    private final Map<String, Widget> widgets = new HashMap<>();
     private long nextId = 1;
 
     @Startup
@@ -44,7 +44,7 @@ public class WidgetService {
         logger.info("Initialized widget service with {} widgets", widgets.size());
     }
 
-    public Widget getWidget(Long id) {
+    public Widget getWidget(String id) {
         return widgets.get(id);
     }
 
@@ -54,7 +54,7 @@ public class WidgetService {
 
     public Widget addWidget(Widget widget) {
         if (widget.getId() == null) {
-            widget.setId(nextId++);
+            widget.setId(String.valueOf(nextId++));
         }
         widgets.put(widget.getId(), widget);
         return widget;
@@ -68,7 +68,7 @@ public class WidgetService {
         }
     }
 
-    public void deleteWidget(Long id) {
+    public void deleteWidget(String id) {
         widgets.remove(id);
     }
 }
