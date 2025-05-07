@@ -12,6 +12,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Symbol;
 import org.apache.tapestry5.services.HttpError;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
+import org.apache.tapestry5.alerts.AlertManager;
 
 import java.time.ZonedDateTime;
 
