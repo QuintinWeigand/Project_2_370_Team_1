@@ -1,5 +1,6 @@
 package com.example.Project2.components;
 
+import com.example.Project2.services.SessionService;
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.SymbolConstants;
@@ -19,6 +20,9 @@ public class Layout {
 
     @Inject
     private ComponentResources resources;
+    
+    @Inject
+    private SessionService sessionService;
 
     /**
     * The page title, for the <title> element and the <h1> element.
@@ -40,7 +44,19 @@ public class Layout {
     }
 
     public String[] getPageNames() {
-        return new String[]{ "Index", "About" };
+        return new String[]{ "Index", "Storefront", "About" };
+    }
+    
+    public boolean isLoggedIn() {
+        return sessionService.isLoggedIn();
+    }
+    
+    public boolean isAdmin() {
+        return sessionService.isAdmin();
+    }
+    
+    public String getCurrentUsername() {
+        return sessionService.getCurrentUsername();
     }
 
     public int getYear() {

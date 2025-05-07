@@ -1,21 +1,37 @@
 <html t:type="layout" title="Login | Project2"
-      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
       xmlns:p="tapestry:parameter">
 
 <div class="row justify-content-md-center">
-    <div class="col-12">
-        <t:form t:id="login">
-            <h2>Please sign in</h2>
-            <div class="mb-3">
-                <t:textfield t:id="email" class="form-control" validate="required" placeholder="Email address"/>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">Login</h3>
             </div>
-            <div class="mb-3">
-                <t:passwordfield t:id="password" class="form-control" validate="required" placeholder="Password"/>
+            <div class="card-body">
+                <t:form t:id="login">
+                    <div class="mb-3">
+                        <t:label for="username" class="form-label">Username</t:label>
+                        <t:textfield t:id="username" class="form-control" validate="required" placeholder="Username"/>
+                    </div>
+                    <div class="mb-3">
+                        <t:label for="password" class="form-label">Password</t:label>
+                        <t:passwordfield t:id="password" class="form-control" validate="required" placeholder="Password"/>
+                        <div class="form-text">Default admin login: username "admin", password "admin"</div>
+                    </div>
+                    <div class="mb-3">
+                        <t:submit class="btn btn-primary btn-large" value="Sign in"/>
+                    </div>
+                </t:form>
+                
+                <hr/>
+                
+                <div class="text-center mt-3">
+                    <p>Don't have an account?</p>
+                    <t:pagelink page="register" class="btn btn-outline-primary">Create an Account</t:pagelink>
+                </div>
             </div>
-            <div class="mb-3">
-                <t:submit class="btn btn-primary btn-large" value="Sign in"/>
-            </div>
-        </t:form>
+        </div>
     </div>
 </div>
 
