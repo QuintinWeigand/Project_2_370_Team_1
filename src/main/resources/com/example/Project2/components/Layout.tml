@@ -35,19 +35,19 @@
                                 </li>
                             </t:if>
                         </ul>
-                        
-                        <!-- Login/logout area -->
-                        <div class="navbar-nav">
-                            <t:if test="loggedIn">
-                                <span class="nav-item navbar-text me-2">
-                                    Welcome, ${currentUsername}
-                                </span>
-                                <t:pagelink page="logout" class="nav-link btn btn-outline-light">Logout</t:pagelink>
-                            </t:if>
-                            <t:if test="!loggedIn">
-                                <t:pagelink page="login" class="nav-link btn btn-light">Sign In</t:pagelink>
-                            </t:if>
-                        </div>
+                    </div>
+                    
+                    <!-- Login/logout area moved outside navbar-collapse -->
+                    <div class="d-flex">
+                        <t:if test="loggedIn">
+                            <span class="navbar-text me-2">
+                                Welcome, ${currentUsername}
+                            </span>
+                            <t:pagelink page="logout" class="nav-link btn btn-outline-light">Logout</t:pagelink>
+                        </t:if>
+                        <t:if test="!loggedIn">
+                            <t:pagelink page="login" class="btn btn-primary">Sign In</t:pagelink>
+                        </t:if>
                     </div>
                 </div>
             </nav>
