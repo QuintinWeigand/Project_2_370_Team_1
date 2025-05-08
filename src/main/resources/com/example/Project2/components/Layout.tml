@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
 <head>
     <meta charset="utf-8"/>
     <title>${title}</title>
@@ -31,9 +31,9 @@
                     </div>
                     
                     <!-- Login/logout area moved outside navbar-collapse -->
-                    <div class="d-flex">
+                    <div class="d-flex align-items-center">
                         <t:if test="loggedIn">
-                            <span class="navbar-text me-2">
+                            <span class="navbar-text me-4 text-truncate" style="max-width: 200px;">
                                 Welcome, ${currentUsername}
                             </span>
                             <t:pagelink page="logout" class="nav-link btn btn-outline-light">Logout</t:pagelink>
