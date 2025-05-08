@@ -24,7 +24,7 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <t:loop source="pageNames" value="pageName">
                                 <t:any element="li" class="nav-item">
-                                   <t:pagelink page="prop:pageName" class="prop:classForPageName">${pageName}</t:pagelink>
+                                    <t:pagelink page="${getNavPageName(pageName)}" class="prop:classForPageName">${pageName}</t:pagelink>
                                 </t:any>
                             </t:loop>
                         </ul>
