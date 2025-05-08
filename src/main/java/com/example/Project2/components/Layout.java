@@ -44,7 +44,7 @@ public class Layout {
     }
 
     public String[] getPageNames() {
-        return new String[]{ "Index", "Storefront", "About" };
+        return new String[]{ "Index", "Storefront", "About", "AdminDashboard" };
     }
     
     public boolean isLoggedIn() {

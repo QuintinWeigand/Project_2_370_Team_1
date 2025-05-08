@@ -1,0 +1,22 @@
+<html t:type="layout" title="Admin Dashboard | Project2"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+
+<div class="row">
+    <div class="col-12">
+        <h2>Admin Dashboard</h2>
+        
+        <t:if test="isAdminUser">
+            <div class="alert alert-success">
+                Yay you are ADMIN!
+            </div>
+        <p:else>
+            <div class="alert alert-warning">
+                Please verify yourself as a Administrator to Proceed
+            </div>
+        </p:else>
+        </t:if>
+    </div>
+</div>
+
+</html>

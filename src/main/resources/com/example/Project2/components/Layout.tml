@@ -27,13 +27,6 @@
                                    <t:pagelink page="prop:pageName" class="prop:classForPageName">${pageName}</t:pagelink>
                                 </t:any>
                             </t:loop>
-                            
-                            <!-- Admin-only navigation options -->
-                            <t:if test="admin">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">Admin Panel</a>
-                                </li>
-                            </t:if>
                         </ul>
                     </div>
                     
