@@ -1,5 +1,8 @@
 
 # Project 2 Team 1
+- Andrew Hamm
+- Joseph Scholl
+- Quintin Weigand
 
 ## Documentation
 
