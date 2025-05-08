@@ -40,11 +40,32 @@ public class Layout {
     private String appVersion;
 
     public String getClassForPageName() {
-        return resources.getPageName().equalsIgnoreCase(pageName) ? "nav-link active" : "nav-link";
+        // Treat "Index" and "Home" as the same for highlighting
+        String current = resources.getPageName();
+        if (("Home".equalsIgnoreCase(pageName) && "Index".equalsIgnoreCase(current)) ||
+            ("Index".equalsIgnoreCase(pageName) && "Home".equalsIgnoreCase(current))) {
+            return "nav-link active";
+        }
+        return current.equalsIgnoreCase(pageName) ? "nav-link active" : "nav-link";
     }
 
     public String[] getPageNames() {
-        return new String[]{ "Index", "Storefront", "About" };
+        // Use "Home" as a label, but handle routing in template logic
+        return new String[]{ "Home", "Storefront", "About", "AdminDashboard" };
+    }
+
+    /**
+     * Returns true if the given pageName is "Home" (for nav bar logic).
+     */
+    public boolean pageNameHome(String pageName) {
+        return "Home".equalsIgnoreCase(pageName);
+    }
+
+    /**
+     * Returns the actual page name for navigation ("Index" for "Home").
+     */
+    public String getNavPageName(String pageName) {
+        return "Home".equalsIgnoreCase(pageName) ? "Index" : pageName;
     }
     
     public boolean isLoggedIn() {

@@ -22,10 +22,16 @@ public class MongoWidgetService {
     private final MongoCollection<Document> collection;
 
     public MongoWidgetService() {
-        this.mongoClient = MongoClients.create("mongodb://localhost:27017");
+        String mongoHost = System.getenv("MONGODB_HOST");
+        String mongoPort = System.getenv("MONGODB_PORT");
+        String mongoUrl = String.format("mongodb://%s:%s", 
+            mongoHost != null ? mongoHost : "localhost",
+            mongoPort != null ? mongoPort : "27017");
+            
+        this.mongoClient = MongoClients.create(mongoUrl);
         MongoDatabase database = mongoClient.getDatabase("Widgets");
         this.collection = database.getCollection("stock");
-        logger.info("Connected to MongoDB Widgets database");
+        logger.info("Connected to MongoDB Widgets database at {}", mongoUrl);
     }
 
     @PostInjection
@@ -39,23 +45,23 @@ public class MongoWidgetService {
     private void addInitialWidgets() {
         addWidget(new Widget(null, "Purple Wonder", 
             "This amazing purple widget will bring joy to your life!", 19.99, 
-            "https://via.placeholder.com/200x200/800080/FFFFFF?text=Purple+Wonder", 10));
-        
+            "/images/purple_wonder.png", 10));
+
         addWidget(new Widget(null, "Purple Elegance", 
             "An elegant purple widget for the sophisticated customer.", 29.99, 
-            "https://via.placeholder.com/200x200/800080/FFFFFF?text=Purple+Elegance", 5));
-        
+            "/images/purple_elegance.png", 5));
+
         addWidget(new Widget(null, "Purple Power", 
             "The most powerful purple widget on the market!", 39.99, 
-            "https://via.placeholder.com/200x200/800080/FFFFFF?text=Purple+Power", 3));
-        
+            "/images/purple_power.png", 3));
+
         addWidget(new Widget(null, "Purple Mini", 
             "A small but mighty purple widget for those on the go.", 14.99, 
-            "https://via.placeholder.com/200x200/800080/FFFFFF?text=Purple+Mini", 15));
-        
+            "/images/purple_mini.png", 15));
+
         addWidget(new Widget(null, "Purple Pro", 
             "The professional-grade purple widget for serious widget enthusiasts.", 49.99, 
-            "https://via.placeholder.com/200x200/800080/FFFFFF?text=Purple+Pro", 2));
+            "/images/purple_pro.png", 2));
     }
 
     public Widget getWidget(String id) {

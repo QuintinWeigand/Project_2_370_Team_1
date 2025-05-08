@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.Project2.unit.ClassTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-05-07T21:33:37" hostname="goontop" time="0.008">
-  <properties/>
-  <testcase name="test()" classname="com.example.Project2.unit.ClassTest" time="0.008"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
