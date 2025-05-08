@@ -4,11 +4,21 @@
 
 <div class="row">
     <div class="col-12">
-        <h1>About Project2 application ...</h1>
+        <h1>About Purple Widget Storefront</h1>
+        <div class="mt-4">
+            <h3>Project Team</h3>
+            <p>This project was created by:</p>
+            <ul>
+                <li>Andrew Hamm</li>
+                <li>Joeseph Scholl</li>
+                <li>Quintin Weigand</li>
+            </ul>
+            
+            <h3>Inspiration</h3>
+            <p>This project was inspired by Ned Ferris's AcmeWidgetCompany Class examples.</p>
+        </div>
     </div>
 </div>
-
-
 
 <t:if test="learn">
     <div class="row">
