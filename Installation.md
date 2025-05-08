@@ -15,7 +15,7 @@ cd Project_2_370_Team_1
 
 2. Start the application using Docker Compose:
 ```bash
-docker-compose up
+docker-compose up --build
 ```
 
 The application will be available at http://localhost:8080
