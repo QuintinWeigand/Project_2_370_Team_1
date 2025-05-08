@@ -9,12 +9,18 @@ public class MongoStatusService {
     private String status;
 
     public MongoStatusService() {
-        try (MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017")) {
+        String mongoHost = System.getenv("MONGODB_HOST");
+        String mongoPort = System.getenv("MONGODB_PORT");
+        String mongoUrl = String.format("mongodb://%s:%s", 
+            mongoHost != null ? mongoHost : "localhost",
+            mongoPort != null ? mongoPort : "27017");
+            
+        try (MongoClient mongoClient = MongoClients.create(mongoUrl)) {
             MongoDatabase db = mongoClient.getDatabase("admin");
             db.runCommand(new Document("ping", 1));
-            status = "Connected";
+            status = "Connected to " + mongoUrl;
         } catch (Exception e) {
-            status = "Not Connected: " + e.getMessage();
+            status = "Not Connected to " + mongoUrl + ": " + e.getMessage();
         }
     }
 

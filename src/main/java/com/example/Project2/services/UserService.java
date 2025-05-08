@@ -27,10 +27,16 @@ public class UserService {
     private final MongoCollection<Document> collection;
 
     public UserService() {
-        this.mongoClient = MongoClients.create("mongodb://localhost:27017");
+        String mongoHost = System.getenv("MONGODB_HOST");
+        String mongoPort = System.getenv("MONGODB_PORT");
+        String mongoUrl = String.format("mongodb://%s:%s", 
+            mongoHost != null ? mongoHost : "localhost",
+            mongoPort != null ? mongoPort : "27017");
+            
+        this.mongoClient = MongoClients.create(mongoUrl);
         MongoDatabase database = mongoClient.getDatabase("Widgets");
         this.collection = database.getCollection("Users");
-        logger.info("Connected to MongoDB Users collection");
+        logger.info("Connected to MongoDB Users collection at {}", mongoUrl);
     }
 
     @PostInjection

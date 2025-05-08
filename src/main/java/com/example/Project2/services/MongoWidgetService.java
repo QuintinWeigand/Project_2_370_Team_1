@@ -22,10 +22,16 @@ public class MongoWidgetService {
     private final MongoCollection<Document> collection;
 
     public MongoWidgetService() {
-        this.mongoClient = MongoClients.create("mongodb://localhost:27017");
+        String mongoHost = System.getenv("MONGODB_HOST");
+        String mongoPort = System.getenv("MONGODB_PORT");
+        String mongoUrl = String.format("mongodb://%s:%s", 
+            mongoHost != null ? mongoHost : "localhost",
+            mongoPort != null ? mongoPort : "27017");
+            
+        this.mongoClient = MongoClients.create(mongoUrl);
         MongoDatabase database = mongoClient.getDatabase("Widgets");
         this.collection = database.getCollection("stock");
-        logger.info("Connected to MongoDB Widgets database");
+        logger.info("Connected to MongoDB Widgets database at {}", mongoUrl);
     }
 
     @PostInjection
