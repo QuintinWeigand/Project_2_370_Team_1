@@ -17,6 +17,7 @@ cd Project_2_370_Team_1
 ```bash
 docker-compose up --build
 ```
+- Note: The first time running the build may multiple minutes. This is because the Maven packages are being installed.
 
 The application will be available at http://localhost:8080
 
