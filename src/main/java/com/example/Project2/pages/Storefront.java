@@ -30,9 +30,4 @@ public class Storefront {
         widgets = widgetService.getAllWidgets();
         logger.info("Loading storefront with {} widgets from MongoDB", widgets.size());
     }
-    
-    // Method to handle widget detail clicks
-    Object onActionFromViewDetails(String widgetId) {
-        return this;
-    }
 }

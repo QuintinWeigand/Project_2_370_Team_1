@@ -26,7 +26,6 @@
                     <p class="card-text">${widget.description}</p>
                     <p class="card-text"><strong>Price: $${widget.price}</strong></p>
                     <p class="card-text text-muted">In stock: ${widget.stockQuantity}</p>
-                    <t:actionlink t:id="viewDetails" context="widget.id" class="btn btn-primary">View Details</t:actionlink>
                 </div>
             </div>
         </div>
